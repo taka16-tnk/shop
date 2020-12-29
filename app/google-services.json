@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "309455056075",
+    "project_id": "myshoppal-4a777",
+    "storage_bucket": "myshoppal-4a777.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309455056075:android:920096ebc594f5cbf23f4e",
+        "android_client_info": {
+          "package_name": "com.example.myshoppal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309455056075-jj3l9f3cm5jfhtg5jf0ajhfejbjorar5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myshoppal",
+            "certificate_hash": "764405a1cfba2d4cfc167fbbe5df6581bf620f39"
+          }
+        },
+        {
+          "client_id": "309455056075-l1s2vrhjptp1054n14mboeq7ikqhql4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4mdaLME5rOSAyUTxeGYfcfnYKFet__dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309455056075-l1s2vrhjptp1054n14mboeq7ikqhql4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
