@@ -12,7 +12,7 @@ class MSPTextViewBold(context: Context, attrs: AttributeSet) : AppCompatTextView
 
     private fun applyFont() {
 
-        //Thie is used to get the file from the assets folder and set it to the title textView.
+        //This is used to get the file from the assets folder and set it to the title textView.
         val typeface: Typeface = Typeface.createFromAsset(context.assets,"Montserrat-Bold.ttf")
         setTypeface(typeface)
     }

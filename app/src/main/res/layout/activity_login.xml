@@ -160,7 +160,7 @@
             android:padding="@dimen/clickable_text_view_padding"
             android:text="@string/register"
             android:textColor="@color/colorSecondaryText"
-            android:textSize="@dimen/lbl_text_view_textSize"/>
+            android:textSize="@dimen/lbl_text_view_textSize" />
 
     </LinearLayout>
 
