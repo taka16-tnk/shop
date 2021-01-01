@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyShopPal</string>
 
-<!--  Login  -->
+    <!--  Login  -->
     <string name="content_description">image</string>
     <string name="title_login">LOGIN</string>
     <string name="et_hint_email_id">Email ID</string>
