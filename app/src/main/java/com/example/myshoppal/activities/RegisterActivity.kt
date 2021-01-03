@@ -27,15 +27,14 @@ class RegisterActivity : BaseActivity() {
             window.setFlags(
                     WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )git
+            )
         }
 
         setupActionBar()
 
         //Loginリンク押下時の処理
         tv_login.setOnClickListener {
-            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-            startActivity(intent)
+            onBackPressed()
         }
 
         //Registerボタン押下時の処理
