@@ -27,7 +27,7 @@ class RegisterActivity : BaseActivity() {
             window.setFlags(
                     WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
+            )git
         }
 
         setupActionBar()
@@ -122,6 +122,7 @@ class RegisterActivity : BaseActivity() {
 
                         // If the registration is successfully done
                         if (task.isSuccessful) {
+
                             //Firebase registered user
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
@@ -129,6 +130,11 @@ class RegisterActivity : BaseActivity() {
                                 "You are registered successfully. Your user id is ${firebaseUser.uid}",
                                 false
                             )
+
+                            //アカウント作成後ログイン画面に遷移する
+                            FirebaseAuth.getInstance().signOut()
+                            finish()
+
                         } else {
                             //If the registering is not successful then show error message.
                             showErrorSnackBar(task.exception!!.message.toString(), true)
