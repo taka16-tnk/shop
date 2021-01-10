@@ -5,10 +5,13 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.myshoppal.R
+import com.example.myshoppal.firestore.FirestoreClass
+import com.example.myshoppal.models.User
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -35,6 +38,21 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         //Click event assigned to Register text.
         tv_register.setOnClickListener(this)
 
+    }
+
+    fun userLoggedInSuccess(user: User) {
+
+        // Hide the progress dialog.
+        hideProgressDialog()
+
+        // Print the user details in the log as of now.
+        Log.i("First Name: ", user.firstName)
+        Log.i("Last Name: ", user.lastName)
+        Log.i("Email: ", user.email)
+
+        // Redirect the user to Main Screen after log in.
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finish()
     }
 
     // In Login screen the clickable components are Login Button, ForgotPassword text and Register Text.
@@ -90,13 +108,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
 
-                        //Hide the progress dialog
-                        hideProgressDialog()
-
                         if (task.isSuccessful) {
-                            // TODO - Send user to Main Activity
-                            showErrorSnackBar("You are logged in successfully.", false)
+                            FirestoreClass().getUserDetails(this@LoginActivity)
                         } else {
+                            hideProgressDialog()
                             showErrorSnackBar(task.exception!!.message.toString(), true)
                         }
                     }
