@@ -12,6 +12,7 @@ import android.view.WindowManager
 import com.example.myshoppal.R
 import com.example.myshoppal.firestore.FirestoreClass
 import com.example.myshoppal.models.User
+import com.example.myshoppal.util.Constants
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -53,6 +54,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         if (user.profileCompleted == 0) {
             //If the user profiles is incomplete then launch the UserProfileActivity.
             val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+            intent.putExtra(Constants.EXTRA_USER_DETAILS, user)
             startActivity(intent)
         } else {
             // Redirect the user to Main Screen after log in.
