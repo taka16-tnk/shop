@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -40,6 +41,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
         et_email.setText(userDetails.email)
 
         iv_user_photo.setOnClickListener(this@UserProfileActivity)
+        btn_submit.setOnClickListener(this@UserProfileActivity)
     }
 
     override fun onClick(v: View?) {
@@ -62,6 +64,13 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
                                 arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                                 Constants.READ_STORAGE_PERMISSION_CODE
                         )
+                    }
+                }
+
+                R.id.btn_submit -> {
+
+                    if (validateUserProfileDetails()) {
+                        showErrorSnackBar("Your details are valid. You can update them.", false)
                     }
                 }
             }
@@ -114,6 +123,17 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
         } else if (resultCode == Activity.RESULT_CANCELED) {
             // A log is printed when user close or cancel the image selection.
             Log.e("Request Cancelled", "Image selection cancelled")
+        }
+    }
+
+    private fun validateUserProfileDetails(): Boolean {
+        return when {
+            TextUtils.isEmpty(et_mobile_number.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_mobile_number), true)
+                false
+            } else -> {
+                true
+            }
         }
     }
 }
