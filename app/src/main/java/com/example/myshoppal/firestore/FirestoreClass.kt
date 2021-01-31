@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.util.Log
 import com.example.myshoppal.activities.LoginActivity
 import com.example.myshoppal.activities.RegisterActivity
+import com.example.myshoppal.activities.UserProfileActivity
 import com.example.myshoppal.models.User
 import com.example.myshoppal.util.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -99,6 +100,33 @@ class FirestoreClass {
                             activity.javaClass.simpleName,
                             "Error while getting user details.",
                             e
+                    )
+                }
+    }
+
+    fun updateUserProfileData(activity: Activity, userHashMap: HashMap<String, Any>) {
+        mFireStore.collection(Constants.USERS)
+                .document(getCurrentUserID())
+                .update(userHashMap)
+                .addOnSuccessListener {
+                    when (activity) {
+                        is UserProfileActivity -> {
+                            // Hide the progress dialog if there is any error. And print the error in log.
+                            activity.userProfileUpdateSuccess()
+                        }
+                    }
+                }
+                .addOnFailureListener { e->
+                    when (activity) {
+                        is UserProfileActivity -> {
+                            // Hide the progress dialog if there is any error. And print the error in log.
+                            activity.hideProgressDialog()
+                        }
+                    }
+
+                    Log.e(
+                            activity.javaClass.simpleName,
+                            "Error while updating the user details.", e
                     )
                 }
     }
