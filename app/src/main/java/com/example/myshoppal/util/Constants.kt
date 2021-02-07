@@ -13,10 +13,13 @@ object Constants {
     const val EXTRA_USER_DETAILS: String = "extra_user_details"
     const val READ_STORAGE_PERMISSION_CODE = 2
     const val PICK_IMAGE_REQUEST_CODE = 1
+
     const val MALE: String = "Male"
     const val FEMALE: String = "Female"
+
     const val MOBILE: String = "mobile"
     const val GENDER: String = "gender"
+    const val IMAGE: String = "image"
 
     // part of the file name int the cloud storage, not the field name in our "user" "document"
     const val USER_PROFILE_IMAGE:String = "User_Profile_Image"
