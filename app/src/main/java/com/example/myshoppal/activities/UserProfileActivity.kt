@@ -27,6 +27,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
     private var mSelectedImageFileUri: Uri? = null
     private var mUserProfileImageURL: String = ""
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
@@ -98,7 +99,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
             Constants.FEMALE
         }
 
-        if(mUserProfileImageURL.isNotEmpty()) {
+        if (mUserProfileImageURL.isNotEmpty()) {
             userHashMap[Constants.IMAGE] = mUserProfileImageURL
         }
 
@@ -107,6 +108,8 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
         }
 
         userHashMap[Constants.GENDER] = gender
+
+        userHashMap[Constants.COMPLETE_PROFILE] = 1
 
         //showProgressDialog(resources.getString(R.string.please_wait))
 
