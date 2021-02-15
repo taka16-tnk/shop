@@ -1,4 +1,4 @@
-package com.example.myshoppal.activities
+package com.example.myshoppal.ui.activities
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

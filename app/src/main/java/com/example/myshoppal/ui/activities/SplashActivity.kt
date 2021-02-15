@@ -1,4 +1,4 @@
-package com.example.myshoppal.activities
+package com.example.myshoppal.ui.activities
 
 import android.content.Intent
 import android.os.Build
@@ -29,7 +29,7 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed(
             {
                 //launch the Main Activity
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                startActivity(Intent(this@SplashActivity, DashboardActivity::class.java))
                 finish()    //Call this when your activity is done and should be closed.
             },
             2500

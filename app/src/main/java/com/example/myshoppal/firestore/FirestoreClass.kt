@@ -5,9 +5,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
-import com.example.myshoppal.activities.LoginActivity
-import com.example.myshoppal.activities.RegisterActivity
-import com.example.myshoppal.activities.UserProfileActivity
+import com.example.myshoppal.ui.activities.LoginActivity
+import com.example.myshoppal.ui.activities.RegisterActivity
+import com.example.myshoppal.ui.activities.UserProfileActivity
 import com.example.myshoppal.models.User
 import com.example.myshoppal.util.Constants
 import com.google.firebase.auth.FirebaseAuth
